@@ -51,7 +51,7 @@ export default function Portfolio() {
       aboutTitle: "Sobre Mim",
       journeyTitle: "Minha Jornada",
       journeyText:
-        "Tenho 20 anos e curso Análise e Desenvolvimento de Sistemas no 4º semestre no Cesuca Centro Universitário. Participo do Projeto Metamorfose Digital, onde atuo com conserto de hardware e ensino de tecnologia para jovens do CRAS, junto a professores da área de TI. Também tenho experiência com JavaScript e tecnologias voltadas ao desenvolvimento web. Meu primeiro contato com programação foi em 2022, no programa Usina de Talentos do Senac-RS, e desde então sigo me aprofundando na área. No tempo livre, gosto de estudar, ler sobre fantasia, ficção e filosofia, desenhar e praticar exercícios. Estou sempre em busca de novos conhecimentos e desafios que me ajudem a evoluir como desenvolvedor e como pessoa.",
+        "Tenho 20 anos e curso Análise e Desenvolvimento de Sistemas no 4º semestre no Cesuca Centro Universitário. Participo do Projeto Metamorfose Digital, onde atuo com conserto de hardware e ensino de tecnologia para jovens do CRAS, junto a professores da área de TI. Também tenho experiência com JavaScript e tecnologias voltadas ao desenvolvimento web. Meu primeiro contato com programação foi em 2022, no programa Usina de Talentos do Senac-RS, e desde então sigo me aprofundando na área. No tempo livre, gosto de estudar, ler, desenhar e praticar exercícios. Estou sempre em busca de novos conhecimentos e desafios que me ajudem a evoluir como desenvolvedor e como pessoa.",
       downloadPortfolio: "Baixar Currículo PDF",
       usedTech: "Tecnologias Usadas",
       careerGoals: "Objetivos de Carreira",
@@ -83,7 +83,7 @@ export default function Portfolio() {
       aboutTitle: "About Me",
       journeyTitle: "My Journey",
       journeyText:
-        "I'm 20 years old and studying Systems Analysis and Development in the 4th semester at Cesuca University Center. I participate in the Digital Metamorphosis Project, where I work with hardware repair and technology education for young people from CRAS, alongside IT professors. I also have experience with JavaScript and web development technologies. My first contact with programming was in 2022, in the Senac-RS Talent Factory program, and since then I've been deepening my knowledge in the field. In my free time, I enjoy studying, reading about fantasy, fiction and philosophy, drawing and exercising. I'm always looking for new knowledge and challenges that help me evolve as a developer and as a person.",
+        "I'm 20 years old and studying Systems Analysis and Development in the 4th semester at Cesuca University Center. I participate in the Digital Metamorphosis Project, where I work with hardware repair and technology education for young people from CRAS, alongside IT professors. I also have experience with JavaScript and web development technologies. My first contact with programming was in 2022, in the Senac-RS Talent Factory program, and since then I've been deepening my knowledge in the field. In my free time, I enjoy studying, reading, drawing and exercising. I'm always looking for new knowledge and challenges that help me evolve as a developer and as a person.",
       downloadPortfolio: "Download Resume PDF",
       usedTech: "Technologies Used",
       careerGoals: "Career Goals",
