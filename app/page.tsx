@@ -55,7 +55,7 @@ export default function Portfolio() {
       downloadPortfolio: "Baixar Currículo PDF",
       usedTech: "Tecnologias Usadas",
       careerGoals: "Objetivos de Carreira",
-      goal1: "Tornar-me um desenvolvedor sênior em 2 anos",
+      goal1: "Tornar-me um desenvolvedor Junior Profissionalmente",
       goal2: "Contribuir para projetos open source",
       goal3: "Especializar-me em arquitetura de software",
       projectsTitle: "Meus Projetos",
@@ -68,7 +68,7 @@ export default function Portfolio() {
       contactSubtitle: "Entre em Contato",
       contactText: "Estou sempre aberto a novas oportunidades e colaborações. Vamos criar algo incrível juntos!",
       email: "Email",
-      footer: "© 2024 Leonardo S. Ruschel. Feito com ❤️ e muito código!",
+      footer: "© 2025 Leonardo S. Ruschel. Feito com ❤️ e muito código!",
     },
     en: {
       home: "Home",
@@ -87,7 +87,7 @@ export default function Portfolio() {
       downloadPortfolio: "Download Resume PDF",
       usedTech: "Technologies Used",
       careerGoals: "Career Goals",
-      goal1: "Become a senior developer in 2 years",
+      goal1: "Become a Junior Developer Professionally",
       goal2: "Contribute to open source projects",
       goal3: "Specialize in software architecture",
       projectsTitle: "My Projects",
@@ -100,7 +100,7 @@ export default function Portfolio() {
       contactSubtitle: "Get In Touch",
       contactText: "I'm always open to new opportunities and collaborations. Let's create something amazing together!",
       email: "Email",
-      footer: "© 2024 Leonardo S. Ruschel. Made with ❤️ and lots of code!",
+      footer: "© 2025 Leonardo S. Ruschel. Made with ❤️ and lots of code!",
     },
   }[language]
 
@@ -178,7 +178,7 @@ export default function Portfolio() {
     },
   ]
 
-  const technologies = ["JavaScript", "TypeScript", "React", "Node.js", "Python", "Git", "Tailwind CSS", "Html"]
+  const technologies = ["JavaScript", "TypeScript", "React", "Node.js", "Python", "CSS", "Html"]
 
   const goals = [t.goal1, t.goal2, t.goal3]
 
