@@ -1,7 +1,5 @@
 "use client"
-
-import type React from "react"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import {
   Moon,
   Sun,
@@ -19,15 +17,12 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-// import { ContactForm } from "@/components/contact-form" // Removido, pois o formulário não será mais renderizado
 
 interface PetalData {
   id: number
   left: number
   delay: number
   duration: number
-  pushed: boolean
-  pushDirection: "left" | "right" | null
 }
 
 export default function Portfolio() {
@@ -35,7 +30,6 @@ export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [language, setLanguage] = useState<"pt" | "en">("pt")
   const [petals, setPetals] = useState<PetalData[]>([])
-  const mousePos = useRef({ x: 0, y: 0 })
 
   const t = {
     pt: {
@@ -106,25 +100,13 @@ export default function Portfolio() {
 
   // Inicializar pétalas
   useEffect(() => {
-    const initialPetals: PetalData[] = Array.from({ length: 20 }, (_, i) => ({
+    const initialPetals: PetalData[] = Array.from({ length: 10 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 5,
       duration: 8 + Math.random() * 4,
-      pushed: false,
-      pushDirection: null,
     }))
     setPetals(initialPetals)
-  }, [])
-
-  // Rastrear posição do mouse
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mousePos.current = { x: e.clientX, y: e.clientY }
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
   const scrollTo = (id: string) => {
@@ -134,38 +116,9 @@ export default function Portfolio() {
 
   const downloadCV = () => {
     const link = document.createElement("a")
-    link.href = "/Leonardo_Ruschel_Curriculo.pdf" // Caminho corrigido
+    link.href = "/Leonardo_Ruschel_Curriculo.pdf"
     link.download = "Leonardo_Ruschel_Curriculo.pdf"
     link.click()
-  }
-
-  const handlePetalInteraction = (petalId: number, event: React.MouseEvent) => {
-    const rect = (event.target as HTMLElement).getBoundingClientRect()
-    const petalCenterX = rect.left + rect.width / 2
-    const mouseX = event.clientX
-
-    // Determinar direção do empurrão baseado na posição do mouse
-    const pushDirection = mouseX < petalCenterX ? "left" : "right"
-
-    setPetals((prev) => prev.map((petal) => (petal.id === petalId ? { ...petal, pushed: true, pushDirection } : petal)))
-
-    // Resetar a pétala após a animação
-    setTimeout(() => {
-      setPetals((prev) =>
-        prev.map((petal) =>
-          petal.id === petalId
-            ? {
-                ...petal,
-                pushed: false,
-                pushDirection: null,
-                left: Math.random() * 100,
-                delay: 0,
-                duration: 8 + Math.random() * 4,
-              }
-            : petal,
-        ),
-      )
-    }, 600)
   }
 
   const projects = [
@@ -192,21 +145,17 @@ export default function Portfolio() {
   return (
     <div className={`min-h-screen transition-colors duration-500 ${darkMode ? "dark" : ""}`}>
       <div className={`min-h-screen relative ${darkMode ? "bg-black text-white" : "bg-gray-50 text-gray-900"}`}>
-        {/* Pétalas interativas */}
+        {/* Pétalas sem interação */}
         <div className="falling-petals-container">
           {petals.map((petal) => (
             <div
               key={petal.id}
-              className={`falling-petal ${petal.pushed ? "pushed" : ""} ${
-                petal.pushDirection ? `push-${petal.pushDirection}` : ""
-              }`}
+              className="falling-petal"
               style={{
                 left: `${petal.left}%`,
                 animationDelay: `${petal.delay}s`,
                 animationDuration: `${petal.duration}s`,
               }}
-              onMouseEnter={(e) => handlePetalInteraction(petal.id, e)}
-              onClick={(e) => handlePetalInteraction(petal.id, e)}
             />
           ))}
         </div>
@@ -464,7 +413,6 @@ export default function Portfolio() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-                {/* Email Item (não clicável) */}
                 <div
                   className={`manga-card p-4 flex items-center space-x-3 sm:space-x-4 ${
                     darkMode ? "bg-gray-900/80" : "bg-gray-50"
@@ -481,7 +429,6 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                {/* GitHub Item (com borda inicial e mais destaque) */}
                 <a
                   href="https://github.com/LeonardoSR17"
                   target="_blank"
@@ -518,7 +465,6 @@ export default function Portfolio() {
                   />
                 </a>
 
-                {/* LinkedIn Item (com borda inicial e mais destaque) */}
                 <a
                   href="https://linkedin.com/in/leonardo-s-ruschel-450310323/"
                   target="_blank"
@@ -555,8 +501,6 @@ export default function Portfolio() {
                   />
                 </a>
               </div>
-
-              {/* A seção de "Envie uma Mensagem" foi removida daqui. */}
             </div>
           </div>
         </section>
