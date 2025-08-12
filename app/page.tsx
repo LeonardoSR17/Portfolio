@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {
   Moon,
   Sun,
@@ -18,18 +18,10 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-interface PetalData {
-  id: number
-  left: number
-  delay: number
-  duration: number
-}
-
 export default function Portfolio() {
   const [darkMode, setDarkMode] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [language, setLanguage] = useState<"pt" | "en">("pt")
-  const [petals, setPetals] = useState<PetalData[]>([])
 
   const t = {
     pt: {
@@ -98,17 +90,6 @@ export default function Portfolio() {
     },
   }[language]
 
-  // Inicializar pétalas
-  useEffect(() => {
-    const initialPetals: PetalData[] = Array.from({ length: 10 }, (_, i) => ({
-      id: i,
-      left: Math.random() * 100,
-      delay: Math.random() * 5,
-      duration: 8 + Math.random() * 4,
-    }))
-    setPetals(initialPetals)
-  }, [])
-
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
     setMobileMenuOpen(false)
@@ -145,21 +126,6 @@ export default function Portfolio() {
   return (
     <div className={`min-h-screen transition-colors duration-500 ${darkMode ? "dark" : ""}`}>
       <div className={`min-h-screen relative ${darkMode ? "bg-black text-white" : "bg-gray-50 text-gray-900"}`}>
-        {/* Pétalas sem interação */}
-        <div className="falling-petals-container">
-          {petals.map((petal) => (
-            <div
-              key={petal.id}
-              className="falling-petal"
-              style={{
-                left: `${petal.left}%`,
-                animationDelay: `${petal.delay}s`,
-                animationDuration: `${petal.duration}s`,
-              }}
-            />
-          ))}
-        </div>
-
         {/* Navigation */}
         <nav
           className={`fixed top-0 w-full z-50 backdrop-blur-sm border-b transition-colors duration-300 ${
@@ -413,6 +379,7 @@ export default function Portfolio() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                {/* Email Item (não clicável) */}
                 <div
                   className={`manga-card p-4 flex items-center space-x-3 sm:space-x-4 ${
                     darkMode ? "bg-gray-900/80" : "bg-gray-50"
@@ -429,6 +396,7 @@ export default function Portfolio() {
                   </div>
                 </div>
 
+                {/* GitHub Item (com borda inicial e mais destaque) */}
                 <a
                   href="https://github.com/LeonardoSR17"
                   target="_blank"
@@ -465,6 +433,7 @@ export default function Portfolio() {
                   />
                 </a>
 
+                {/* LinkedIn Item (com borda inicial e mais destaque) */}
                 <a
                   href="https://linkedin.com/in/leonardo-s-ruschel-450310323/"
                   target="_blank"
